@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bookr</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">        
+    </head>
+    <body>
+        <div class="container">
+            <h1>Book Review Application</h1>
+            <hr>
+            <ul>
+                {% for item in book_list %}
+                    <li>
+                        <span>Title: </span> <span>{{ item.book.title }}</span>
+                        <br>
+                        <span>Publisher: </span><span>{{ item.book.publisher }}</span>
+                        <br>
+                        <span>Publication Date: </span><span>{{ item.book.publication_date }}</span>
+                        <br>
+                        <span>Rating: </span><span>{{ item.book_rating }}</span>
+                        <br>
+                        <span>Number of reviews: </span><span>{{ item.number_of_reviews }}</span>
+                        <br>
+                        {% if item.book_rating is null %}
+                        <span>Provide a rating and write the first review for this book.</span>
+                        <br>
+                        {% endif %}
+                    </li>
+                    <br>
+                {% endfor %}
+            </ul>   
+        </div>     
+    </body>
+</html>
